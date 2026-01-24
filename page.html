@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Posts and Comments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1, h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .deleted {
+            color: gray;
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .actions button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .actions .delete {
+            background-color: #dc3545;
+        }
+
+        .actions .delete:hover {
+            background-color: #c82333;
+        }
+
+        .actions .restore {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .actions .restore:hover {
+            background-color: #e0a800;
+        }
+    </style>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h1>Manage Posts</h1>
+    <div>
+        <table id="post-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="post-body">
+                <!-- Posts content will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>Add/Edit Post</h3>
+        <form id="post-form">
+            <label for="title_txt">Title:</label>
+            <input type="text" id="title_txt" placeholder="Enter Title">
+            
+            <label for="views_txt">Views:</label>
+            <input type="number" id="views_txt" placeholder="Enter Views">
+            
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+    <hr>
+
+    <h1>Manage Comments</h1>
+    <div>
+        <table id="comment-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Comment</th>
+                    <th>Post ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="comment-body">
+                <!-- Comment content will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>Add Comment</h3>
+        <form id="comment-form">
+            <label for="comment_text">Comment Text:</label>
+            <input type="text" id="comment_text" placeholder="Enter Comment">
+            
+            <label for="comment_postId">Post ID:</label>
+            <input type="text" id="comment_postId" placeholder="Enter Post ID">
+            
+            <input type="submit" value="Add Comment">
+        </form>
+    </div>
+</body>
+</html>
